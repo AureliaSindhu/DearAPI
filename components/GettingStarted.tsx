@@ -12,7 +12,7 @@ const GettingStarted: React.FC = () => {
                     So this is how it works yall,
                 </p>
                 <p className="mb-3 leading-relaxed">
-                    After reading this, you will need to fill your partner's name and the letter you wanna say to her (e.g. dinner invite) and then this web will give u a cuter format 💕 that you can send to your SO (significant other). ⚠️ Please write it genuinely yall, NO AI PLEASE!! 
+                    After reading this, you will need to fill your partner&apos;s name and the letter you wanna say to her (e.g. dinner invite) and then this web will give u a cuter format 💕 that you can send to your SO (significant other). ⚠️ Please write it genuinely yall, NO AI PLEASE!! 
                 </p>
                 <p className="mb-2 leading-relaxed">
                     and you&apos;re welcome! 
