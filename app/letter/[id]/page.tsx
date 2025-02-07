@@ -18,7 +18,6 @@ interface Letter {
 }
 
 export default function LetterPage() {
-    /* eslint-disable @typescript-eslint/no-explicit-any */
     const { id } = useParams();
     console.log("Fetched id:", id);
 
