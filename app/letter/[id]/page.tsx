@@ -5,13 +5,16 @@ import { motion } from 'framer-motion';
 import { HeartIcon } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle, CardFooter } from '@/components/ui/card';
-import { useParams } from 'next/navigation';
+import { useParams, useSearchParams } from 'next/navigation';
 
 export default function LetterPage() {
     const { id } = useParams();
+    const searchParams = useSearchParams();
+    const isShared = searchParams.has("shared");
 
     const [letter, setLetter] = React.useState<any>(null);
     const [loading, setLoading] = React.useState(true);
+    const [copied, setCopied] = React.useState(false);
 
     React.useEffect(() => {
         const fetchLetter = async () => {
@@ -24,6 +27,19 @@ export default function LetterPage() {
         };
         fetchLetter();
     }, [id]);
+
+    const handleCopyLink = async () => {
+        try {
+            const url = new URL(window.location.href);
+            url.searchParams.set("shared", "true");
+
+            await navigator.clipboard.writeText(url.toString());
+            setCopied(true);
+            setTimeout(() => setCopied(false), 2000);
+        } catch (error) {
+            console.error('Failed to copy link', error);
+        }
+    };
 
     if (loading) {
         return (
@@ -94,6 +110,13 @@ export default function LetterPage() {
                                 YES!
                             </Button>
                         </div>
+
+                        {!isShared && (
+                            <Button variant="outline" onClick={handleCopyLink}>
+                                {copied ? "Link Copied!" : "Share Link"}
+                            </Button>
+                        )}
+                        
                     </CardFooter>
                 </Card>
             </motion.div>
