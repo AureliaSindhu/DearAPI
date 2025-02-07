@@ -17,8 +17,13 @@ interface Letter {
     createdAt: string;
 }
 
+interface Params {
+    id: string;
+}
+
 export default function LetterPage() {
-    const { id } = useParams();
+    // const { id } = useParams();
+    const { id } = useParams() as unknown as Params;
     console.log("Fetched id:", id);
 
     const searchParams = useSearchParams();
