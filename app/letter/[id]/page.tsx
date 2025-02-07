@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 "use client";
 
 import React from 'react';
@@ -19,17 +18,21 @@ interface Letter {
 }
 
 export default function LetterPage() {
+    /* eslint-disable @typescript-eslint/no-explicit-any */
     const { id } = useParams();
     console.log("Fetched id:", id);
 
     const searchParams = useSearchParams();
     const isShared = searchParams.has("shared");
 
+    /* eslint-disable @typescript-eslint/no-explicit-any */
+
     // const [letter, setLetter] = React.useState<any>(null);
     // const [loading, setLoading] = React.useState(true);
     // const [copied, setCopied] = React.useState(false);
     // const [noClicked, setNoClicked] = React.useState(false);
 
+    /* eslint-disable @typescript-eslint/no-explicit-any */
     const [letter, setLetter] = React.useState<Letter | null>(null);
     const [loading, setLoading] = React.useState<boolean>(true);
     const [copied, setCopied] = React.useState<boolean>(false);
