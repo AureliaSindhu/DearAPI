@@ -12,6 +12,8 @@ import DearAPI from '@/components/DearAPI';
 
 export default function LetterPage() {
     const { id } = useParams();
+    console.log("Fetched id:", id);
+
     const searchParams = useSearchParams();
     const isShared = searchParams.has("shared");
 
@@ -21,6 +23,9 @@ export default function LetterPage() {
     const [noClicked, setNoClicked] = React.useState(false);
 
     React.useEffect(() => {
+        if (!id) {
+            return;
+        }
         const fetchLetter = async () => {
             const res = await fetch(`/api/letters/${id}`);
             if (res.ok) {

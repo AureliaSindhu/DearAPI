@@ -17,7 +17,7 @@ export function Greeting({ onGetStarted }: GreetingProps) {
         className="font-poppins greeting-container bg-gradient-to-br from-pink-100 to-red-100 p-8 rounded-xl mx-auto text-rose-800 flex flex-col items-center justify-center text-center shadow-lg"
         >
         <h2 className="text-xl font-bold mb-4">
-            Welcome <span className="font-zodiak italic">dear </span>,
+            well hello there!
         </h2>
         <Image src="/doomed.jpg" 
             alt="Love Letter" 
