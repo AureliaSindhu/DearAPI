@@ -11,6 +11,10 @@ export function saveLetter(letter: Letter) {
     letters[letter.id] = letter;
 }
 
-export function getLetter(id: string): Letter | undefined {
-    return letters[id];
+// export function getLetter(id: string): Letter | undefined {
+//     return letters[id];
+// }
+
+export async function getLetter(id: string): Promise<Letter | null> {
+    return letters[id] || null;
 }

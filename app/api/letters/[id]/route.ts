@@ -5,9 +5,10 @@ export async function GET(
     request: Request,
     { params }: { params: { id: string } }
     ) {
-    const letter = getLetter(params.id);
+    const letter = await getLetter(params.id);
     if (!letter) {
         return NextResponse.json({ error: "Letter not found" }, { status: 404 });
     }
     return NextResponse.json(letter);
 }
+
