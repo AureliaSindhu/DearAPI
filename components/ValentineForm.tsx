@@ -34,7 +34,7 @@ const ValentineForm: React.FC = () => {
     return (
         <form
         onSubmit={handleSubmit}
-        className="bg-gradient-to-r from-pink-100 to-red-100 p-8 rounded-3xl shadow-lg max-w-2xl mx-auto text-black"
+        className="bg-gradient-to-r from-pink-100 to-red-100 p-8 rounded-xl shadow-lg max-w-2xl mx-auto text-black"
         >
         <div className="mb-6 text-center">
             <Heart className="inline-block text-rose-500 w-12 h-12 mb-2 animate-pulse" />
@@ -64,6 +64,7 @@ const ValentineForm: React.FC = () => {
             placeholder="Write your heartfelt message here..."
             className="w-full p-3 rounded-lg border-2 border-rose-300 focus:border-rose-500 focus:ring focus:ring-rose-200 transition duration-200 ease-in-out h-40 resize-none"
             />
+            <p className="mt-2 text-rose-900 font-semibold"> ⚠️ Please write it whole heartedly cuz there is no AI suggestion buddy</p>
         </div>
         {error && <p className="text-red-500 mb-4">{error}</p>}
         <button
