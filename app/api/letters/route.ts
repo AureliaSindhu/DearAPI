@@ -13,7 +13,6 @@ export async function POST(request: Request) {
         );
         }
 
-        // Generate a simple unique ID (for demo purposes)
         const id = Math.random().toString(36).substring(2, 9);
         const letter = {
         id,
@@ -22,7 +21,6 @@ export async function POST(request: Request) {
         createdAt: new Date().toISOString(),
         };
 
-        // Save the letter in our in-memory store
         saveLetter(letter);
 
         return NextResponse.json(letter, { status: 201 });

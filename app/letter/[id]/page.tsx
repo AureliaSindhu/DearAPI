@@ -1,37 +1,102 @@
-import React from "react";
-import { getLetter } from "../../../lib/letters";
+"use client";
 
-interface PageProps {
-    params: { id: string };
-}
+import React from 'react';
+import { motion } from 'framer-motion';
+import { HeartIcon } from 'lucide-react';
+import { Button } from '@/components/ui/button';
+import { Card, CardContent, CardHeader, CardTitle, CardFooter } from '@/components/ui/card';
+import { useParams } from 'next/navigation';
 
-const LetterPage = async ({ params }: PageProps) => {
-    const letter = await getLetter(params.id);
+export default function LetterPage() {
+    const { id } = useParams();
+
+    const [letter, setLetter] = React.useState<any>(null);
+    const [loading, setLoading] = React.useState(true);
+
+    React.useEffect(() => {
+        const fetchLetter = async () => {
+            const res = await fetch(`/api/letters/${id}`);
+            if (res.ok) {
+                const data = await res.json();
+                setLetter(data);
+            }
+            setLoading(false);
+        };
+        fetchLetter();
+    }, [id]);
+
+    if (loading) {
+        return (
+            <div className="min-h-screen flex items-center justify-center bg-rose-950">
+                <motion.div
+                    animate={{ rotate: 360 }}
+                    transition={{ duration: 2, repeat: Infinity, ease: "linear" }}
+                >
+                    <HeartIcon className="w-12 h-12 text-rose-200" />
+                </motion.div>
+            </div>
+        );
+    }
 
     if (!letter) {
         return (
-        <div className="min-h-screen flex items-center justify-center">
-            <p className="text-xl text-gray-700">Letter not found.</p>
-        </div>
+            <div className="min-h-screen flex items-center justify-center bg-rose-950">
+                <p className="text-xl text-rose-200">Letter not found.</p>
+            </div>
         );
     }
 
     return (
-        <div className="min-h-screen flex items-center justify-center bg-rose-50 p-4">
-        <div className="max-w-2xl w-full bg-white p-8 rounded-xl shadow-lg border border-gray-200 text-black">
-            <h1 className="text-2xl font-bold mb-6">Your Love Letter</h1>
-            <p className="mb-4">
-            <strong>To My Valentine:</strong> {letter.recipient}
-            </p>
-            <p className="mb-4">
-            <strong>Your Lovely Message:</strong> {letter.message}
-            </p>
-            <p className="text-gray-500 text-sm">
-            Created at: {new Date(letter.createdAt).toLocaleString()}
-            </p>
-        </div>
+        <div className="min-h-screen flex items-center justify-center bg-rose-950 p-4">
+            <motion.div
+                initial={{ opacity: 0, y: 50 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5 }}
+                className="max-w-2xl w-full"
+            >
+                <Card className="border-rose-200 bg-rose-50">
+                    <CardHeader>
+                        <CardTitle className="text-3xl font-bold text-rose-800 text-center">
+                            Your Love Letter
+                        </CardTitle>
+                    </CardHeader>
+                    <CardContent className="space-y-4">
+                        <motion.div
+                            initial={{ opacity: 0 }}
+                            animate={{ opacity: 1 }}
+                            transition={{ delay: 0.2 }}
+                        >
+                            <p className="text-lg">
+                                <span className="font-semibold text-rose-700">To My Valentine:</span>{' '}
+                                <span className="text-rose-900">{letter.recipient}</span>
+                            </p>
+                        </motion.div>
+                        <motion.div
+                            initial={{ opacity: 0 }}
+                            animate={{ opacity: 1 }}
+                            transition={{ delay: 0.4 }}
+                        >
+                            <p className="text-lg">
+                                <span className="font-semibold text-rose-700">Your Lovely Message:</span>
+                            </p>
+                            <p className="mt-2 text-rose-900 italic">{letter.message}</p>
+                        </motion.div>
+                    </CardContent>
+                    <CardFooter className="flex flex-col items-center space-y-4">
+                        <p className="text-rose-600 text-sm">
+                            Created at: {new Date(letter.createdAt).toLocaleString()}
+                        </p>
+                        <div className="flex space-x-4">
+                            <Button variant="default" className="bg-rose-600 hover:bg-rose-700">
+                                Definitely!
+                            </Button>
+                            <Button variant="outline" className="border-rose-600 text-rose-600 hover:bg-rose-100">
+                                YES!
+                            </Button>
+                        </div>
+                    </CardFooter>
+                </Card>
+            </motion.div>
         </div>
     );
-};
-
-export default LetterPage;
+}
