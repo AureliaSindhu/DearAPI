@@ -8,6 +8,7 @@ import { Card, CardContent, CardHeader, CardTitle, CardFooter } from '@/componen
 import { useParams, useSearchParams } from 'next/navigation';
 import Footer from '@/components/Footer';
 import confetti from 'canvas-confetti';
+import DearAPI from '@/components/DearAPI';
 
 export default function LetterPage() {
     const { id } = useParams();
@@ -75,6 +76,7 @@ export default function LetterPage() {
 
     return (
         <div className="min-h-screen flex items-center justify-center bg-rose-950 p-4">
+            <DearAPI />
             <motion.div
                 initial={{ opacity: 0, y: 50 }}
                 animate={{ opacity: 1, y: 0 }}
