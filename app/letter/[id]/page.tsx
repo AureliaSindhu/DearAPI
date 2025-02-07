@@ -12,7 +12,7 @@ import DearAPI from '@/components/DearAPI';
 
 export default function LetterPage() {
     const { id } = useParams();
-    // console.log("Fetched id:", id);
+    console.log("Fetched id:", id);
 
     const searchParams = useSearchParams();
     const isShared = searchParams.has("shared");
