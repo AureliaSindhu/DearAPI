@@ -30,7 +30,7 @@ import { getLetter } from '@/lib/letters' // adjust the import to your actual fu
 
 export async function GET(
     request: NextRequest,
-    { params }: { params: { id: string } }
+    { params }: { params: Record<string, string>  }
     ): Promise<NextResponse> {
     console.log("Requested letter id:", params.id);
     const letter = await getLetter(params.id);
