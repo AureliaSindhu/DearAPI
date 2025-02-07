@@ -68,6 +68,8 @@ module.exports = {
       },
       fontFamily: {
         sans: ["var(--font-sans)", ...fontFamily.sans],
+        poppins: ['poppins', 'sans-serif'],
+        zodiak: ['zodiak', 'sans-serif'],
       },
       keyframes: {
         "accordion-down": {

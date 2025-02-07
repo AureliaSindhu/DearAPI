@@ -68,7 +68,7 @@ export default function LetterPage() {
     if (!letter) {
         return (
             <div className="min-h-screen flex items-center justify-center bg-rose-950">
-                <p className="text-xl text-rose-200">Letter not found.</p>
+                <p className="font-zodiak italic text-xl text-rose-200">Letter not found.</p>
             </div>
         );
     }
@@ -81,10 +81,10 @@ export default function LetterPage() {
                 transition={{ duration: 0.5 }}
                 className="max-w-2xl w-full"
             >
-                <Card className="border-rose-200 bg-rose-50">
+                <Card className="border-rose-200 bg-rose-50 font-zodiak">
                     <CardHeader>
-                        <CardTitle className="text-3xl font-bold text-rose-800 text-center">
-                            Your Love Letter
+                        <CardTitle className="font-zodiak italic text-2xl font-bold text-rose-800 text-center">
+                            My dearest Valentine
                         </CardTitle>
                     </CardHeader>
                     <CardContent className="space-y-4">
@@ -94,8 +94,7 @@ export default function LetterPage() {
                             transition={{ delay: 0.2 }}
                         >
                             <p className="text-lg">
-                                <span className="font-semibold text-rose-700">To My Valentine:</span>{' '}
-                                <span className="text-rose-900">{letter.recipient}</span>
+                                <span className="font-zodiak italic text-rose-700">Dear {letter.recipient}, </span>
                             </p>
                         </motion.div>
                         <motion.div
@@ -103,16 +102,16 @@ export default function LetterPage() {
                             animate={{ opacity: 1 }}
                             transition={{ delay: 0.4 }}
                         >
-                            <p className="text-lg">
+                            {/* <p className="text-lg">
                                 <span className="font-semibold text-rose-700">Your Lovely Message:</span>
-                            </p>
-                            <p className="mt-2 text-rose-900 italic">{letter.message}</p>
+                            </p> */}
+                            <p className="font-zodiak text-rose-900 italic">{letter.message}</p>
                         </motion.div>
                     </CardContent>
                     <CardFooter className="flex flex-col items-center space-y-4">
-                        <p className="text-rose-600 text-sm">
+                        {/* <p className="text-rose-600 text-sm">
                             Created at: {new Date(letter.createdAt).toLocaleString()}
-                        </p>
+                        </p> */}
                         <div className="flex space-x-4">
                             {!noClicked && (
                                 <Button

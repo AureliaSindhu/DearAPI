@@ -38,10 +38,10 @@ const ValentineForm: React.FC = () => {
         >
         <div className="mb-6 text-center">
             <Heart className="inline-block text-rose-500 w-12 h-12 mb-2 animate-pulse" />
-            <h2 className="text-3xl font-bold text-rose-700">Create Your Valentine's Letter</h2>
+            <h2 className="font-poppins text-2xl font-bold text-rose-700">Create Your Letter</h2>
         </div>
         <div className="mb-6">
-            <label htmlFor="recipient" className="block text-rose-700 font-semibold mb-2">
+            <label htmlFor="recipient" className="font-zodiak block text-rose-700 font-semibold mb-2">
             To My Valentine:
             </label>
             <input
@@ -50,11 +50,11 @@ const ValentineForm: React.FC = () => {
             value={recipient}
             onChange={(e) => setRecipient(e.target.value)}
             placeholder="Enter your partner's name"
-            className="w-full p-3 rounded-lg border-2 border-rose-300 focus:border-rose-500 focus:ring focus:ring-rose-200 transition duration-200 ease-in-out"
+            className="font-poppins w-full p-3 rounded-lg border-2 border-rose-300 focus:border-rose-500 focus:ring focus:ring-rose-200 transition duration-200 ease-in-out"
             />
         </div>
         <div className="mb-6">
-            <label htmlFor="message" className="block text-rose-700 font-semibold mb-2">
+            <label htmlFor="message" className="font-zodiak block text-rose-700 font-semibold mb-2">
             Your Lovely Message:
             </label>
             <textarea
@@ -62,16 +62,16 @@ const ValentineForm: React.FC = () => {
             value={message}
             onChange={(e) => setMessage(e.target.value)}
             placeholder="Write your heartfelt message here..."
-            className="w-full p-3 rounded-lg border-2 border-rose-300 focus:border-rose-500 focus:ring focus:ring-rose-200 transition duration-200 ease-in-out h-40 resize-none"
+            className="font-poppins w-full p-3 rounded-lg border-2 border-rose-300 focus:border-rose-500 focus:ring focus:ring-rose-200 transition duration-200 ease-in-out h-40 resize-none"
             />
-            <p className="mt-2 text-rose-900 font-semibold"> ⚠️ Please write it whole heartedly cuz there is no AI suggestion buddy</p>
+            <p className="font-poppins mt-2 text-rose-900 font-semibold"> ⚠️ Please write it whole heartedly cuz there is no AI suggestion buddy</p>
         </div>
         {error && <p className="text-red-500 mb-4">{error}</p>}
         <button
             type="submit"
-            className="w-full bg-rose-500 hover:bg-rose-600 text-white font-bold py-3 px-6 rounded-lg transition duration-200 ease-in-out transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-rose-400 focus:ring-opacity-50"
+            className="font-poppins w-full bg-rose-500 hover:bg-rose-600 text-white font-bold py-3 px-6 rounded-lg transition duration-200 ease-in-out transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-rose-400 focus:ring-opacity-50"
         >
-            Generate Love Letter <Heart className="inline-block ml-2 w-5 h-5" />
+            Generate Your Valentine&apos;s Letter <Heart className="inline-block ml-2 w-5 h-5" />
         </button>
         </form>
     )

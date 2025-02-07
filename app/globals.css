@@ -2,8 +2,23 @@
 @tailwind components;
 @tailwind utilities;
 
-body {
+/* body {
   font-family: Arial, Helvetica, sans-serif;
+  font-family: "Poppins", Arial, Helvetica, sans-serif;
+} */
+
+@font-face {
+  font-family: "zodiak";
+  src: url(/font/OTF/Zodiak-Regular.otf) format("opentype");
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "poppins";
+  src: url(/fonts/font/OTF/Poppins-Regular.otf) format("opentype");
+  font-weight: 400;
+  font-style: normal;
 }
 
 @layer base {
