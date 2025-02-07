@@ -125,7 +125,7 @@ export default function LetterPage() {
                     animate={{ opacity: 1 }}
                     transition={{ delay: 0.4 }}
                     >
-                    <p className="font-zodiak text-rose-900 italic">{letter.message}</p>
+                    <p className="font-zodiak text-rose-900 italic" style={{ whiteSpace: 'pre-wrap' }}>{letter.message}</p>
                     </motion.div>
                 </CardContent>
                 <CardFooter className="flex flex-col items-center space-y-4">
