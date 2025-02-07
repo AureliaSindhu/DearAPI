@@ -5,8 +5,8 @@ interface PageProps {
     params: { id: string };
 }
 
-const LetterPage: React.FC<PageProps> = ({ params }) => {
-    const letter = getLetter(params.id);
+const LetterPage = async ({ params }: PageProps) => {
+    const letter = await getLetter(params.id);
 
     if (!letter) {
         return (

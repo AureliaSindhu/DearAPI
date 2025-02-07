@@ -2,26 +2,35 @@
 
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Heart } from 'lucide-react';
+import Image from 'next/image';
 
-export function Greeting() {
+interface GreetingProps {
+    onGetStarted: () => void;
+}
+
+export function Greeting({ onGetStarted }: GreetingProps) {
     return (
         <motion.div
         initial={{ opacity: 0, y: -20 }}        
         animate={{ opacity: 1, y: 0 }}           
         transition={{ duration: 0.5 }}         
-        className="greeting-container bg-gradient-to-br from-pink-100 to-red-100 p-8 rounded-xl max-w-[600px] mx-auto text-rose-800 flex flex-col items-center justify-center text-center shadow-lg"
+        className="greeting-container bg-gradient-to-br from-pink-100 to-red-100 p-8 rounded-xl mx-auto text-rose-800 flex flex-col items-center justify-center text-center shadow-lg"
         >
-        <h2 className="text-3xl font-bold mb-4">
-            Hi there, Welcome to <span className="italic">Dear API</span> !
+        <h2 className="text-xl font-bold mb-4">
+            Welcome to <span className="italic">Dear API</span> !
         </h2>
-        <p className="text-lg">
-            As you're here, so you're almost in trouble—but luckily, I can help.
-            So, let's get started!
+        <Image src="/doomed.jpg" 
+            alt="Love Letter" 
+            width={400} 
+            height={200} 
+            className="rounded-xl"
+        />
+        <p className="text-md mt-4">
+            You&apos;re clearly in trouble right when you click the link to this website, but now worries, I got you! 
         </p>
         <button
-            className="greeting-button bg-rose-500 hover:bg-rose-600 text-white font-bold rounded-full px-8 py-3 mt-4 transition-all duration-300 ease-in-out transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-rose-400 focus:ring-opacity-50"
-            onClick={() => (window.location.href = '/setup')}
+            className="greeting-button bg-rose-500 hover:bg-rose-600 text-white font-bold rounded-full px-3 py-1 mt-4 transition-all duration-300 ease-in-out transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-rose-400 focus:ring-opacity-50"
+            onClick={onGetStarted}
         >
             Get Started
         </button>

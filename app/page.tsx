@@ -1,11 +1,21 @@
 "use client";
+
+import React, { useState } from 'react';
 import Greeting from '@/components/Greeting';
+import Footer from '@/components/Footer';
+import GettingStarted from '@/components/GettingStarted';
 
 export default function Home() {
+  const [showGettingStarted, setShowGettingStarted] = useState(false);
 
   return (
-    <div className="flex items-center justify-center min-h-screen bg-pink-950">
-      <Greeting />
+    <div className="flex flex-col items-center justify-center min-h-screen bg-pink-950 p-20">
+      { !showGettingStarted ? (
+        <Greeting onGetStarted={() => setShowGettingStarted(true)} />
+      ) : (
+        <GettingStarted />
+      )}
+      <Footer />
     </div>
   );
 }
