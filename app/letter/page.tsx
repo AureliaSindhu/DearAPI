@@ -3,8 +3,7 @@ import ValentineForm from '@/components/ValentineForm';
 
 const LetterPage: React.FC = () => {
     return (
-        <div>
-            <h1>Valentine's Day Letter</h1>
+        <div className="flex justify-center items-center h-screen bg-gray-100">
             <ValentineForm />
         </div>
     );
