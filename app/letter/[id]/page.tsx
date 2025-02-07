@@ -24,12 +24,12 @@ export default function LetterPage() {
     const searchParams = useSearchParams();
     const isShared = searchParams.has("shared");
 
-    const [letter, setLetter] = React.useState<any>(null);
+    // const [letter, setLetter] = React.useState<any>(null);
     // const [loading, setLoading] = React.useState(true);
     // const [copied, setCopied] = React.useState(false);
     // const [noClicked, setNoClicked] = React.useState(false);
 
-    // const [letter, setLetter] = React.useState<Letter | null>(null);
+    const [letter, setLetter] = React.useState<Letter | null>(null);
     const [loading, setLoading] = React.useState<boolean>(true);
     const [copied, setCopied] = React.useState<boolean>(false);
     const [noClicked, setNoClicked] = React.useState<boolean>(false);
