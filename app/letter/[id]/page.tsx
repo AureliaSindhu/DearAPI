@@ -6,6 +6,8 @@ import { HeartIcon } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle, CardFooter } from '@/components/ui/card';
 import { useParams, useSearchParams } from 'next/navigation';
+import Footer from '@/components/Footer';
+import confetti from 'canvas-confetti';
 
 export default function LetterPage() {
     const { id } = useParams();
@@ -15,6 +17,7 @@ export default function LetterPage() {
     const [letter, setLetter] = React.useState<any>(null);
     const [loading, setLoading] = React.useState(true);
     const [copied, setCopied] = React.useState(false);
+    const [noClicked, setNoClicked] = React.useState(false);
 
     React.useEffect(() => {
         const fetchLetter = async () => {
@@ -39,6 +42,14 @@ export default function LetterPage() {
         } catch (error) {
             console.error('Failed to copy link', error);
         }
+    };
+
+    const handleYesClick = () => {
+        confetti({
+            particleCount: 100,
+            spread: 70,
+            origin: { y: 0.6 }
+        });
     };
 
     if (loading) {
@@ -103,10 +114,20 @@ export default function LetterPage() {
                             Created at: {new Date(letter.createdAt).toLocaleString()}
                         </p>
                         <div className="flex space-x-4">
-                            <Button variant="default" className="bg-rose-600 hover:bg-rose-700">
-                                Definitely!
-                            </Button>
-                            <Button variant="outline" className="border-rose-600 text-rose-600 hover:bg-rose-100">
+                            {!noClicked && (
+                                <Button
+                                    variant="default"
+                                    className="bg-rose-600 hover:bg-rose-700"
+                                    onClick={() => setNoClicked(true)}
+                                >
+                                    NO!
+                                </Button>
+                            )}
+                            <Button 
+                                variant="outline" 
+                                className="border-rose-600 text-rose-600 hover:bg-rose-100 hover:text-rose-900"
+                                onClick={handleYesClick}
+                            >
                                 YES!
                             </Button>
                         </div>
@@ -116,10 +137,11 @@ export default function LetterPage() {
                                 {copied ? "Link Copied!" : "Share Link"}
                             </Button>
                         )}
-                        
+
                     </CardFooter>
                 </Card>
             </motion.div>
+            <Footer />
         </div>
     );
 }
