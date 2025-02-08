@@ -5,7 +5,7 @@ import DearAPI from '@/components/DearAPI';
 
 const LetterPage: React.FC = () => {
     return (
-        <div className="flex justify-center items-center h-screen bg-rose-950 p-10">
+        <div className="flex flex-col justify-center items-center min-h-screen bg-rose-950 p-10">
             <DearAPI />
             <ValentineForm />
             <Footer />

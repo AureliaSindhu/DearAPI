@@ -34,7 +34,7 @@ const ValentineForm: React.FC = () => {
     return (
         <form
         onSubmit={handleSubmit}
-        className="bg-gradient-to-r from-pink-100 to-red-100 p-8 rounded-xl shadow-lg max-w-2xl mx-auto text-black"
+        className="bg-gradient-to-r from-pink-100 to-red-100 p-8 rounded-xl shadow-lg m-8 mx-auto text-black"
         >
         <div className="mb-6 text-center">
             <Heart className="inline-block text-rose-500 w-12 h-12 mb-2 animate-pulse" />

@@ -96,7 +96,7 @@ export default function LetterPage() {
     }
 
     return (
-        <div className="min-h-screen flex items-center justify-center bg-rose-950 p-4">
+        <div className="min-h-screen flex flex-col items-center justify-center bg-rose-950 p-4">
             <DearAPI />
             <motion.div
                 initial={{ opacity: 0, y: 50 }}
@@ -106,7 +106,7 @@ export default function LetterPage() {
             >
                 <Card className="border-rose-200 bg-rose-50 font-zodiak">
                 <CardHeader>
-                    <CardTitle className="font-zodiak italic text-2xl font-bold text-rose-800 text-center">
+                    <CardTitle className="font-zodiak italic text-2xl font-bold text-rose-800 text-center sm:text-xl">
                     My dearest Valentine
                     </CardTitle>
                 </CardHeader>
@@ -116,7 +116,7 @@ export default function LetterPage() {
                     animate={{ opacity: 1 }}
                     transition={{ delay: 0.2 }}
                     >
-                    <p className="text-lg">
+                    <p className="text-lg sm:text-sm">
                         <span className="font-zodiak italic text-rose-700">Dear {letter.recipient}, </span>
                     </p>
                     </motion.div>
@@ -125,7 +125,7 @@ export default function LetterPage() {
                     animate={{ opacity: 1 }}
                     transition={{ delay: 0.4 }}
                     >
-                    <p className="font-zodiak text-rose-900 italic" style={{ whiteSpace: 'pre-wrap' }}>{letter.message}</p>
+                    <p className="font-zodiak text-rose-900 italic sm:text-xs" style={{ whiteSpace: 'pre-wrap' }}>{letter.message}</p>
                     </motion.div>
                 </CardContent>
                 <CardFooter className="flex flex-col items-center space-y-4">

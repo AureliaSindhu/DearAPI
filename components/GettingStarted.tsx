@@ -6,8 +6,8 @@ import Link from 'next/link';
 const GettingStarted: React.FC = () => {
     return (
         <div className="max-w-2xl w-full bg-white p-8 rounded-xl shadow-lg border border-gray-200 text-black">
-            <h1 className="font-zodiak font-semibold text-xl mb-6">A Little Note</h1>
-            <div className="font-mono text-sm">
+            <h1 className="font-zodiak font-semibold text-xl mb-6 sm:text-lg">A Little Note</h1>
+            <div className="font-mono text-sm sm:text-xs">
                 <p className="mb-3 leading-relaxed">
                     So this is how it works yall,
                 </p>
